@@ -9,20 +9,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* Layout: a one-page studio menu for Instagram visitors — what I do (services), what it costs (packages, receipt-style lines), the rules, then an order composer that hands off to Instagram DM. */
+/* Brand colours from the @ergali_sagat logo: navy with gold. Layout: a one-page studio menu for Instagram visitors — what I do (services), what it costs (packages, receipt-style lines), the rules, then an order composer that hands off to Instagram DM. */
 :root{
-  --bg:#F2F3EF; --surface:#FFFFFF; --ink:#111517; --ink-2:#3D4549; --muted:#6B7479; --line:#D8DCD6;
-  --accent:#1D6B57; --accent-ink:#FFFFFF; --accent-soft:#DDEBE5; --band:#111517; --band-ink:#F2F3EF; --band-muted:#A9B2AE;
+  --bg:#F3F4F8; --surface:#FFFFFF; --ink:#121528; --ink-2:#3B4060; --muted:#6B7090; --line:#D9DCE8;
+  --accent:#1E2A6E; --accent-ink:#FFFFFF; --accent-soft:#E3E7F6; --gold:#B8862C; --band:#141833; --band-ink:#F3F4F8; --band-muted:#A9AECB;
   --display:"Unbounded","Arial Black",system-ui,sans-serif;
   --body:"Onest","Segoe UI",system-ui,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0F1314; --surface:#171D1F; --ink:#EEF1EE; --ink-2:#C2CAC6; --muted:#8E9895; --line:#2A3335;
-  --accent:#5CC3A3; --accent-ink:#0D1A16; --accent-soft:#18302A; --band:#1B2326; --band-ink:#EEF1EE; --band-muted:#8E9895; color-scheme:dark}}
+  --bg:#0E1124; --surface:#171B36; --ink:#EEF0F8; --ink-2:#C3C7DD; --muted:#8C91AE; --line:#2A3052;
+  --accent:#E8B34A; --accent-ink:#141833; --accent-soft:#252B4F; --gold:#E8B34A; --band:#171B36; --band-ink:#EEF0F8; --band-muted:#9097B8; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0F1314; --surface:#171D1F; --ink:#EEF1EE; --ink-2:#C2CAC6; --muted:#8E9895; --line:#2A3335;
-  --accent:#5CC3A3; --accent-ink:#0D1A16; --accent-soft:#18302A; --band:#1B2326; --band-ink:#EEF1EE; --band-muted:#8E9895; color-scheme:dark}
+  --bg:#0E1124; --surface:#171B36; --ink:#EEF0F8; --ink-2:#C3C7DD; --muted:#8C91AE; --line:#2A3052;
+  --accent:#E8B34A; --accent-ink:#141833; --accent-soft:#252B4F; --gold:#E8B34A; --band:#171B36; --band-ink:#EEF0F8; --band-muted:#9097B8; color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
@@ -38,7 +38,7 @@ a{color:inherit}
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:60px}
 .brand{font-family:var(--display);font-weight:700;font-size:15px;text-decoration:none}
-.brand span{color:var(--accent)}
+.brand span{color:var(--gold)}
 .top nav{display:flex;gap:22px;font-size:14px}
 .top nav a{text-decoration:none;color:var(--ink-2)}
 .top nav a:hover{color:var(--accent)}
@@ -51,7 +51,7 @@ a{color:inherit}
 
 .hero{padding-block:44px 40px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px 56px;align-items:end}
 .hero h1{font-size:clamp(32px,5.6vw,64px);margin-top:14px}
-.hero h1 em{font-style:normal;color:var(--accent)}
+.hero h1 em{font-style:normal;color:var(--gold)}
 .hero .side{display:flex;flex-direction:column;gap:20px;min-width:0}
 .hero p{color:var(--ink-2);font-size:18px;max-width:46ch}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:10px}
@@ -117,7 +117,7 @@ a{color:inherit}
 .w .mock i.t{height:18px;width:70%;opacity:.9}
 .w .mock i.s1{width:50%}.w .mock i.s2{width:35%}
 .w .mock i.b{height:26px;width:40%;border-radius:8px;opacity:.9}
-.m1{background:#1E2A2F;color:#F2F3EF}.m2{background:#F1E4DA;color:#6E361B}.m3{background:#DDEBE5;color:#1D6B57}
+.m1{background:#1E2A2F;color:#F2F3EF}.m2{background:#F1E4DA;color:#6E361B}.m3{background:#141833;color:#E8B34A}
 .w .bd{padding:18px;display:flex;flex-direction:column;gap:6px}
 .w h3{font-size:17px}
 .w p{font-size:14px;color:var(--ink-2)}
@@ -272,7 +272,7 @@ textarea{min-height:96px;resize:vertical}
     domH:'Домен оплачивается отдельно',domP:'Домен (ваш-бизнес.com) оформляется на ваше имя, и вы оплачиваете его раз в год. Подключу его к сайту бесплатно. Без домена сайт работает по бесплатному адресу.',
     dom:[['<b>.com</b>','≈ 8 000 ₸ / год'],['<b>.kz</b>','от 5 000 ₸ / год'],['Подключение к сайту','бесплатно']],
     workL:'Примеры',workH:'Что уже сделано',
-    work:[['Фитнес-клуб','Сайт с расписанием, тарифами и записью.','Открыть сайт','/fitness/'],['Кондитерские Алматы','7 сайтов для кондитеров: галерея тортов, начинки, расчёт стоимости и заказ в WhatsApp.','Покажу в директе',''],['Домашние полуфабрикаты','Каталог с ценами и корзиной, заказ одним сообщением.','Покажу в директе','']],
+    work:[['Фитнес-клуб','Сайт с расписанием, тарифами и записью.','Покажу в директе',''],['Кондитерские Алматы','7 сайтов для кондитеров: галерея тортов, начинки, расчёт стоимости и заказ в WhatsApp.','Покажу в директе',''],['Домашние полуфабрикаты','Каталог с ценами и корзиной, заказ одним сообщением.','Покажу в директе','']],
     rulesL:'Условия',rulesH:'Как мы работаем',
     rules:[['Оплата 50 / 50','50% перед началом, 50% когда работа готова и вам всё нравится.'],['2 круга правок','При создании два раза вносим правки бесплатно, дальше по прайсу.'],['Поддержка до 5 числа','Ежемесячный платёж за сайт вносится до 5 числа.'],['7 дней отсрочки','Если оплата задерживается больше 7 дней, сайт временно отключается.'],['Домен на вас','Домен ваш навсегда, даже если вы уйдёте к другому разработчику.'],['Большие изменения отдельно','Новая страница или раздел: от 15 000 ₸. Правка сверх пакета: 2 000 ₸.']],
     stepsL:'Как заказать',stepsH:'От заявки до запуска',
@@ -302,7 +302,7 @@ textarea{min-height:96px;resize:vertical}
     domH:'Домен бөлек төленеді',domP:'Домен (сіздің-бизнес.com) сіздің атыңызға тіркеледі, ақысын жылына бір рет өзіңіз төлейсіз. Сайтқа тегін қосып берем. Доменсіз сайт тегін мекенжайда жұмыс істейді.',
     dom:[['<b>.com</b>','≈ 8 000 ₸ / жыл'],['<b>.kz</b>','5 000 ₸-ден / жыл'],['Сайтқа қосу','тегін']],
     workL:'Жұмыстар',workH:'Не жасалды',
-    work:[['Фитнес-клуб','Кестесі, тарифтері және жазылуы бар сайт.','Сайтты ашу','/fitness/'],['Алматы кондитерлері','Кондитерлерге 7 сайт: торт галереясы, начинкалар, баға есептеу және WhatsApp-қа тапсырыс.','Директте көрсетем',''],['Үй жартылай фабрикаттары','Бағасы мен себеті бар каталог, тапсырыс бір хабарламамен.','Директте көрсетем','']],
+    work:[['Фитнес-клуб','Кестесі, тарифтері және жазылуы бар сайт.','Директте көрсетем',''],['Алматы кондитерлері','Кондитерлерге 7 сайт: торт галереясы, начинкалар, баға есептеу және WhatsApp-қа тапсырыс.','Директте көрсетем',''],['Үй жартылай фабрикаттары','Бағасы мен себеті бар каталог, тапсырыс бір хабарламамен.','Директте көрсетем','']],
     rulesL:'Шарттар',rulesH:'Қалай жұмыс істейміз',
     rules:[['Төлем 50 / 50','50% жұмыс басталар алдында, 50% жұмыс дайын болып, ұнағанда.'],['2 рет түзету','Жасау кезінде екі рет тегін түзетеміз, одан кейін прайс бойынша.'],['Қолдау айдың 5-іне дейін','Сайттың ай сайынғы төлемі 5-ке дейін төленеді.'],['7 күн кешігу мүмкіндігі','Төлем 7 күннен артық кешіксе, сайт уақытша өшеді.'],['Домен сіздікі','Басқа әзірлеушіге кетсеңіз де, домен сізде қалады.'],['Үлкен өзгеріс бөлек','Жаңа бет немесе бөлім: 15 000 ₸-ден. Пакеттен тыс өзгеріс: 2 000 ₸.']],
     stepsL:'Қалай тапсырыс беру',stepsH:'Өтінімнен іске қосуға дейін',

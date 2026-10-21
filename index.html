@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ergali Sagat Studio</title>
+<meta name="description" content="Сайты, чат-боты, AI-видео и контент для бизнеса в Алматы. Цены и заказ в Instagram @ergali_sagat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: a one-page studio menu for Instagram visitors — what I do (services), what it costs (packages, receipt-style lines), the rules, then an order composer that hands off to Instagram DM. */
+:root{
+  --bg:#F2F3EF; --surface:#FFFFFF; --ink:#111517; --ink-2:#3D4549; --muted:#6B7479; --line:#D8DCD6;
+  --accent:#1D6B57; --accent-ink:#FFFFFF; --accent-soft:#DDEBE5; --band:#111517; --band-ink:#F2F3EF; --band-muted:#A9B2AE;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Onest","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1314; --surface:#171D1F; --ink:#EEF1EE; --ink-2:#C2CAC6; --muted:#8E9895; --line:#2A3335;
+  --accent:#5CC3A3; --accent-ink:#0D1A16; --accent-soft:#18302A; --band:#1B2326; --band-ink:#EEF1EE; --band-muted:#8E9895; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1314; --surface:#171D1F; --ink:#EEF1EE; --ink-2:#C2CAC6; --muted:#8E9895; --line:#2A3335;
+  --accent:#5CC3A3; --accent-ink:#0D1A16; --accent-soft:#18302A; --band:#1B2326; --band-ink:#EEF1EE; --band-muted:#8E9895; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1180px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:700;margin:0;line-height:1.08;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+.num{font-variant-numeric:tabular-nums}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+a{color:inherit}
+
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:60px}
+.brand{font-family:var(--display);font-weight:700;font-size:15px;text-decoration:none}
+.brand span{color:var(--accent)}
+.top nav{display:flex;gap:22px;font-size:14px}
+.top nav a{text-decoration:none;color:var(--ink-2)}
+.top nav a:hover{color:var(--accent)}
+.right{display:flex;gap:10px;align-items:center}
+@media (max-width:860px){.top nav{display:none}}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface)}
+.seg button{border:0;background:transparent;color:var(--ink-2);font:600 13px var(--body);padding:7px 13px;border-radius:999px;cursor:pointer;min-height:34px}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.cta{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 16px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font:600 14px var(--body);text-decoration:none;white-space:nowrap}
+
+.hero{padding-block:44px 40px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px 56px;align-items:end}
+.hero h1{font-size:clamp(32px,5.6vw,64px);margin-top:14px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .side{display:flex;flex-direction:column;gap:20px;min-width:0}
+.hero p{color:var(--ink-2);font-size:18px;max-width:46ch}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 22px;border-radius:10px;border:1px solid var(--ink);background:transparent;color:var(--ink);font:600 15px var(--body);cursor:pointer;text-decoration:none}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.btn.main{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.main:hover{filter:brightness(1.08);background:var(--accent);color:var(--accent-ink)}
+@media (max-width:820px){.hero{grid-template-columns:minmax(0,1fr)}}
+
+.sec{padding-block:56px 8px}
+.sec>h2,.sec .h2{font-size:clamp(24px,3.4vw,38px);margin:10px 0 26px}
+
+.svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:900px){.svc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.svc{grid-template-columns:minmax(0,1fr)}}
+.s{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.s .ic{width:40px;height:40px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
+.s .ic svg{width:22px;height:22px}
+.s h3{font-size:18px}
+.s p{color:var(--ink-2);font-size:15px}
+.s ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--ink-2)}
+.s li{display:grid;grid-template-columns:16px minmax(0,1fr);gap:6px}
+.s li::before{content:"✓";color:var(--accent);font-weight:700}
+.s .pr{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.s .pr b{font-family:var(--display);font-weight:500;font-size:18px;white-space:nowrap}
+.s .pr button{border:0;background:none;color:var(--accent);font:600 14px var(--body);cursor:pointer;padding:8px 0}
+
+.bill{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin-bottom:20px}
+.bill .note{font-size:14px;color:var(--accent);font-weight:600}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+@media (max-width:900px){.plans{grid-template-columns:minmax(0,1fr)}}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.plan.hot{border:2px solid var(--accent)}
+.plan .hd{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.plan h3{font-size:22px}
+.pill{font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--accent);color:var(--accent-ink);white-space:nowrap}
+.plan .for{color:var(--muted);font-size:15px}
+.lines{border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);padding-block:14px;display:flex;flex-direction:column;gap:10px}
+.line{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.line span{color:var(--ink-2);font-size:14px}
+.line b{font-family:var(--display);font-weight:500;font-size:clamp(20px,2.4vw,25px);white-space:nowrap}
+.line small{display:block;font-size:12px;color:var(--accent);font-weight:600;text-align:right}
+.inc{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;font-size:15px}
+.inc li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:8px}
+.inc li::before{content:"✓";color:var(--accent);font-weight:700}
+.plan .btn{width:100%;margin-top:auto}
+.hot .btn{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+
+.dom{margin-top:16px;background:var(--accent-soft);border-radius:14px;padding:22px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px 32px;align-items:center}
+@media (max-width:760px){.dom{grid-template-columns:minmax(0,1fr)}}
+.dom h3{font-size:19px;margin-bottom:6px}
+.dom p{color:var(--ink-2);font-size:15px}
+.dom table{width:100%;border-collapse:collapse;font-size:15px}
+.dom td{padding:9px 0;border-bottom:1px solid var(--line)}
+.dom td:last-child{text-align:right;font-weight:600;white-space:nowrap;padding-left:12px}
+.dom td b{font-family:var(--mono);font-weight:500}
+
+.work{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:900px){.work{grid-template-columns:minmax(0,1fr)}}
+.w{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface);display:flex;flex-direction:column;min-width:0}
+.w .mock{aspect-ratio:16/10;max-width:100%;padding:16px;display:flex;flex-direction:column;gap:8px;justify-content:flex-end}
+.w .mock i{display:block;height:8px;border-radius:4px;background:currentColor;opacity:.25}
+.w .mock i.t{height:18px;width:70%;opacity:.9}
+.w .mock i.s1{width:50%}.w .mock i.s2{width:35%}
+.w .mock i.b{height:26px;width:40%;border-radius:8px;opacity:.9}
+.m1{background:#1E2A2F;color:#F2F3EF}.m2{background:#F1E4DA;color:#6E361B}.m3{background:#DDEBE5;color:#1D6B57}
+.w .bd{padding:18px;display:flex;flex-direction:column;gap:6px}
+.w h3{font-size:17px}
+.w p{font-size:14px;color:var(--ink-2)}
+.w a{font-size:14px;font-weight:600;color:var(--accent);margin-top:6px}
+
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+@media (max-width:900px){.rules{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.rules{grid-template-columns:minmax(0,1fr)}}
+.rule{background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.rule h3{font-family:var(--body);font-weight:600;font-size:16px}
+.rule p{font-size:15px;color:var(--ink-2)}
+
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:s}
+@media (max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.steps{grid-template-columns:minmax(0,1fr)}}
+.steps li{counter-increment:s;border-top:2px solid var(--ink);padding-top:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);color:var(--accent);font-size:14px}
+.steps b{font-size:17px}
+.steps span{font-size:15px;color:var(--ink-2)}
+
+.order{background:var(--band);color:var(--band-ink);margin-top:72px}
+.order .wrap{padding-block:56px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:28px 56px;align-items:start}
+@media (max-width:900px){.order .wrap{grid-template-columns:minmax(0,1fr)}}
+.order .label{color:var(--band-muted)}
+.order h2{font-size:clamp(26px,3.6vw,42px);margin:10px 0 14px}
+.order .intro p{color:var(--band-muted);max-width:40ch}
+.contact{margin-top:22px;display:flex;flex-direction:column;gap:4px}
+.contact b{font-family:var(--display);font-size:20px}
+form.f{background:var(--surface);color:var(--ink);border-radius:14px;padding:clamp(18px,3vw,30px);display:flex;flex-direction:column;gap:18px;min-width:0}
+.fld{display:flex;flex-direction:column;gap:8px;min-width:0}
+.fld>.lb,.fld>label{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:42px;padding:0 14px;border:1px solid var(--line);border-radius:999px;background:var(--bg);color:var(--ink);font:500 14px var(--body);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+input[type=text],textarea{width:100%;min-height:50px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:16px}
+textarea{min-height:96px;resize:vertical}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+@media (max-width:520px){.two{grid-template-columns:minmax(0,1fr)}}
+.prev{background:var(--bg);border:1px dashed var(--line);border-radius:10px;padding:14px;font-size:14px;white-space:pre-wrap;color:var(--ink-2);min-height:80px}
+.acts{display:flex;flex-direction:column;gap:10px}
+.acts .btn{width:100%}
+.status{font-size:14px;color:var(--accent);min-height:1.4em}
+.fine{font-size:13px;color:var(--muted);padding-block:22px 48px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">@ergali<span>_</span>sagat</a>
+    <nav aria-label="Menu"><a href="#services" data-t="nServices"></a><a href="#sites" data-t="nSites"></a><a href="#work" data-t="nWork"></a><a href="#rules" data-t="nRules"></a></nav>
+    <div class="right">
+      <div class="seg" role="group" aria-label="Тіл / Язык"><button type="button" id="lRu" aria-pressed="true">RU</button><button type="button" id="lKz" aria-pressed="false">ҚАЗ</button></div>
+      <a class="cta" href="#order" data-t="order"></a>
+    </div>
+  </div>
+</header>
+
+<main id="top" class="wrap">
+  <section class="hero">
+    <div><span class="label" data-t="eyebrow"></span><h1 id="h1"></h1></div>
+    <div class="side"><p data-t="lead"></p><div class="ctas"><a class="btn main" href="#order" data-t="order"></a><a class="btn" href="#services" data-t="seeAll"></a></div></div>
+  </section>
+
+  <section class="sec" id="services">
+    <span class="label" data-t="svcL"></span><h2 data-t="svcH"></h2>
+    <div class="svc" id="svc"></div>
+  </section>
+
+  <section class="sec" id="sites">
+    <span class="label" data-t="siteL"></span><h2 data-t="siteH"></h2>
+    <div class="bill">
+      <div class="seg" role="group" aria-label="Billing"><button type="button" id="bM" aria-pressed="true" data-t="monthly"></button><button type="button" id="bY" aria-pressed="false" data-t="yearly"></button></div>
+      <span class="note" data-t="yearNote"></span>
+    </div>
+    <div class="plans" id="plans"></div>
+    <div class="dom">
+      <div><h3 data-t="domH"></h3><p data-t="domP"></p></div>
+      <table class="num"><tbody id="domT"></tbody></table>
+    </div>
+  </section>
+
+  <section class="sec" id="work">
+    <span class="label" data-t="workL"></span><h2 data-t="workH"></h2>
+    <div class="work" id="workG"></div>
+  </section>
+
+  <section class="sec" id="rules">
+    <span class="label" data-t="rulesL"></span><h2 data-t="rulesH"></h2>
+    <div class="rules" id="rulesG"></div>
+  </section>
+
+  <section class="sec">
+    <span class="label" data-t="stepsL"></span><h2 data-t="stepsH"></h2>
+    <ol class="steps" id="stepsG"></ol>
+  </section>
+</main>
+
+<section class="order" id="order">
+  <div class="wrap">
+    <div class="intro">
+      <span class="label" data-t="ordL"></span><h2 data-t="ordH"></h2><p data-t="ordP"></p>
+      <div class="contact"><span class="label">Instagram</span><b>@ergali_sagat</b></div>
+    </div>
+    <form class="f" id="form" novalidate>
+      <div class="fld"><span class="lb" id="whatL" data-t="fWhat"></span><div class="chips" id="what" role="group" aria-labelledby="whatL"></div></div>
+      <div class="two">
+        <div class="fld"><label for="biz" data-t="fBiz"></label><input type="text" id="biz" autocomplete="organization"></div>
+        <div class="fld"><label for="nm" data-t="fName"></label><input type="text" id="nm" autocomplete="given-name"></div>
+      </div>
+      <div class="fld"><label for="desc" data-t="fDesc"></label><textarea id="desc"></textarea></div>
+      <div class="fld"><span class="lb" data-t="fPrev"></span><div class="prev" id="prev" aria-live="polite"></div></div>
+      <div class="acts">
+        <a class="btn main" id="send" href="https://ig.me/m/ergali_sagat" target="_blank" rel="noopener" data-t="fSend"></a>
+        <button type="button" class="btn" id="copy" data-t="fCopy"></button>
+        <p class="status" id="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </div>
+</section>
+<div class="wrap"><p class="fine" data-t="fine"></p></div>
+
+<script>
+(function(){
+  var ICON={
+    site:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg>',
+    bot:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/><path d="M9 11h.01M15 11h.01"/></svg>',
+    video:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="13" height="14" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg>',
+    voice:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>',
+    design:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>',
+    ads:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h3l6 5V5L7 10H4a1 1 0 0 0-1 1z"/><path d="M17 8a5 5 0 0 1 0 8"/></svg>'
+  };
+  var SVC=[{k:'site',ic:'site',p:40000,link:'#sites'},{k:'bot',ic:'bot',p:40000},{k:'video',ic:'video',p:5000},{k:'voice',ic:'voice',p:8000},{k:'design',ic:'design',p:3000},{k:'ads',ic:'ads',p:15000}];
+  var P=[{one:40000,mo:3000},{one:80000,mo:5000,hot:1},{one:150000,mo:10000}];
+  var T={
+  ru:{nServices:'Услуги',nSites:'Сайты',nWork:'Примеры',nRules:'Условия',order:'Заказать',seeAll:'Все услуги',
+    eyebrow:'Сайты · боты · AI-видео · Алматы',h1:'Делаю так, чтобы <em>клиенты приходили сами</em>',
+    lead:'Сайт с заказом в WhatsApp, бот, который отвечает клиентам ночью, видео и дизайн для Instagram. Всё под ключ, от идеи до запуска.',
+    svcL:'Что я делаю',svcH:'Шесть услуг для вашего бизнеса',from:'от',ask:'Заказать',per:{video:' / ролик',voice:' / ролик',design:' / макет',ads:' + бюджет'},
+    svc:{site:['Сайт для бизнеса','Одностраничный сайт или сайт с каталогом, ценами и калькулятором.',['Работает на телефоне','Заявка сразу в WhatsApp','Запуск за 5–7 дней']],
+      bot:['Чат-бот WhatsApp и Telegram','Принимает заявки, отвечает на частые вопросы и присылает прайс без вас.',['Работает 24/7','Собирает имя, телефон, заказ','Передаёт заявку вам']],
+      video:['AI-видео и Reels','Оживляю фото, делаю рекламные ролики и Reels с помощью нейросетей.',['Оживление фотографий','Ролик для рекламы','Формат для Instagram']],
+      voice:['Говорящее видео','Человек на фото или аватар произносит ваш текст на казахском или русском.',['Озвучка текстом','Клонирование голоса','Казахский и русский']],
+      design:['Дизайн для Instagram','Сторис, посты, прайс-листы и обложки в едином стиле.',['Прайс-лист','Сторис и посты','Обложки для Reels']],
+      ads:['Реклама в Instagram','Настраиваю таргет в Instagram и Facebook на Казахстан или ваш город.',['Настройка аудитории','Создание объявлений','Отчёт по результатам']]},
+    siteL:'Сайты',siteH:'Пакеты сайтов',monthly:'Помесячно',yearly:'За 12 месяцев',yearNote:'При оплате за год 2 месяца в подарок',
+    names:['Старт','Бизнес','Премиум'],hot:'Чаще выбирают',
+    fors:['Визитка для мастера или небольшого бизнеса','Для кондитерских, салонов, студий с меню и ценами','Сайт и чат-бот для растущего бизнеса'],
+    one:'Создание, один раз',mo:'Поддержка, в месяц',yr:'Поддержка, за год',save:'экономия',
+    inc:[['Одностраничный сайт','Адаптация под телефон','Кнопка WhatsApp','1 правка в месяц'],['Всё из «Старт»','Калькулятор или каталог','Форма заказа в WhatsApp','3 правки в месяц'],['Всё из «Бизнес»','Чат-бот для заявок','Подключение вашего домена','Правки без ограничений']],
+    pick:'Выбрать',
+    domH:'Домен оплачивается отдельно',domP:'Домен (ваш-бизнес.com) оформляется на ваше имя, и вы оплачиваете его раз в год. Подключу его к сайту бесплатно. Без домена сайт работает по бесплатному адресу.',
+    dom:[['<b>.com</b>','≈ 8 000 ₸ / год'],['<b>.kz</b>','от 5 000 ₸ / год'],['Подключение к сайту','бесплатно']],
+    workL:'Примеры',workH:'Что уже сделано',
+    work:[['Фитнес-клуб','Сайт с расписанием, тарифами и записью.','Открыть сайт','/fitness/'],['Кондитерские Алматы','7 сайтов для кондитеров: галерея тортов, начинки, расчёт стоимости и заказ в WhatsApp.','Покажу в директе',''],['Домашние полуфабрикаты','Каталог с ценами и корзиной, заказ одним сообщением.','Покажу в директе','']],
+    rulesL:'Условия',rulesH:'Как мы работаем',
+    rules:[['Оплата 50 / 50','50% перед началом, 50% когда работа готова и вам всё нравится.'],['2 круга правок','При создании два раза вносим правки бесплатно, дальше по прайсу.'],['Поддержка до 5 числа','Ежемесячный платёж за сайт вносится до 5 числа.'],['7 дней отсрочки','Если оплата задерживается больше 7 дней, сайт временно отключается.'],['Домен на вас','Домен ваш навсегда, даже если вы уйдёте к другому разработчику.'],['Большие изменения отдельно','Новая страница или раздел: от 15 000 ₸. Правка сверх пакета: 2 000 ₸.']],
+    stepsL:'Как заказать',stepsH:'От заявки до запуска',
+    steps:[['Заявка','Напишите в Instagram, что нужно. Форма ниже составит сообщение за вас.'],['Расчёт и 50%','Называю точную цену и срок, вы вносите предоплату.'],['Первый вариант','Показываю результат: сайт через 3–4 дня, видео через 1–2 дня.'],['Запуск','Вносим правки, вы оплачиваете остаток, всё работает.']],
+    ordL:'Заказ',ordH:'Опишите задачу, остальное сделаю я',ordP:'Выберите услуги и пару слов о бизнесе. Сообщение соберётся само, останется отправить его в Instagram.',
+    fWhat:'Что нужно',fBiz:'Ваш бизнес',fName:'Ваше имя',fDesc:'Коротко о задаче',fPrev:'Ваше сообщение',fSend:'Отправить в Instagram',fCopy:'Скопировать сообщение',
+    ph:{biz:'Например, кондитерская',nm:'Например, Айгерим',desc:'Например: нужен сайт с ценами и заказом в WhatsApp'},
+    hello:'Здравствуйте! Хочу заказать:',bizL:'Бизнес',nameL:'Имя',descL:'Задача',choose:'Выберите хотя бы одну услугу',
+    copied:'Скопировано. Вставьте сообщение в директ @ergali_sagat',sentHint:'Сообщение скопировано, вставьте его в открывшийся чат',copyFail:'Не удалось скопировать. Выделите текст выше вручную',
+    fine:'Цены в тенге, указаны начальные. Точная стоимость зависит от объёма и фиксируется до начала работы.'},
+  kz:{nServices:'Қызметтер',nSites:'Сайттар',nWork:'Жұмыстар',nRules:'Шарттар',order:'Тапсырыс беру',seeAll:'Барлық қызмет',
+    eyebrow:'Сайт · бот · AI-видео · Алматы',h1:'Клиенттер <em>өздері келетіндей</em> етемін',
+    lead:'WhatsApp-қа тапсырыс түсетін сайт, түнде де клиентке жауап беретін бот, Instagram-ға видео мен дизайн. Идеядан іске қосуға дейін бәрін жасаймын.',
+    svcL:'Не істеймін',svcH:'Бизнесіңізге алты қызмет',from:'',ask:'Тапсырыс',per:{video:' / ролик',voice:' / ролик',design:' / макет',ads:' + бюджет'},fromSuf:'-ден',
+    svc:{site:['Бизнеске сайт','Бір беттік сайт немесе каталогы, бағалары мен калькуляторы бар сайт.',['Телефонда ыңғайлы','Өтінім бірден WhatsApp-қа','5–7 күнде іске қосу']],
+      bot:['WhatsApp және Telegram бот','Өтінім қабылдайды, жиі сұрақтарға жауап береді, прайсты өзі жібереді.',['24/7 жұмыс істейді','Аты, нөмірі, тапсырысын жинайды','Өтінімді сізге жібереді']],
+      video:['AI-видео және Reels','Нейрожелі арқылы суретті жандандырамын, жарнамалық ролик пен Reels жасаймын.',['Суретті жандандыру','Жарнамалық ролик','Instagram форматы']],
+      voice:['Сөйлейтін видео','Суреттегі адам немесе аватар сіздің мәтініңізді қазақша не орысша айтады.',['Мәтінмен дыбыстау','Дауысты клондау','Қазақша және орысша']],
+      design:['Instagram дизайны','Бір стильдегі сторис, пост, прайс-парақ және мұқабалар.',['Прайс-парақ','Сторис пен пост','Reels мұқабасы']],
+      ads:['Instagram жарнамасы','Instagram мен Facebook-та Қазақстанға немесе қалаңызға таргет баптаймын.',['Аудиторияны баптау','Жарнама жасау','Нәтиже бойынша есеп']]},
+    siteL:'Сайттар',siteH:'Сайт пакеттері',monthly:'Ай сайын',yearly:'12 айға',yearNote:'Жылға төлесеңіз, 2 ай сыйлық',
+    names:['Старт','Бизнес','Премиум'],hot:'Жиі таңдайды',
+    fors:['Шебер немесе шағын бизнеске визитка','Кондитерлік, салон, студияларға: мәзір мен бағалар','Өсіп келе жатқан бизнеске: сайт және чат-бот'],
+    one:'Жасау, бір рет',mo:'Қолдау, айына',yr:'Қолдау, жылына',save:'үнем',
+    inc:[['Бір беттік сайт','Телефонға бейімделген','WhatsApp батырмасы','Айына 1 өзгеріс'],['«Старт» пакетіндегінің бәрі','Калькулятор немесе каталог','WhatsApp-қа тапсырыс формасы','Айына 3 өзгеріс'],['«Бизнес» пакетіндегінің бәрі','Өтінім қабылдайтын чат-бот','Доменіңізді қосу','Шексіз өзгеріс']],
+    pick:'Таңдау',
+    domH:'Домен бөлек төленеді',domP:'Домен (сіздің-бизнес.com) сіздің атыңызға тіркеледі, ақысын жылына бір рет өзіңіз төлейсіз. Сайтқа тегін қосып берем. Доменсіз сайт тегін мекенжайда жұмыс істейді.',
+    dom:[['<b>.com</b>','≈ 8 000 ₸ / жыл'],['<b>.kz</b>','5 000 ₸-ден / жыл'],['Сайтқа қосу','тегін']],
+    workL:'Жұмыстар',workH:'Не жасалды',
+    work:[['Фитнес-клуб','Кестесі, тарифтері және жазылуы бар сайт.','Сайтты ашу','/fitness/'],['Алматы кондитерлері','Кондитерлерге 7 сайт: торт галереясы, начинкалар, баға есептеу және WhatsApp-қа тапсырыс.','Директте көрсетем',''],['Үй жартылай фабрикаттары','Бағасы мен себеті бар каталог, тапсырыс бір хабарламамен.','Директте көрсетем','']],
+    rulesL:'Шарттар',rulesH:'Қалай жұмыс істейміз',
+    rules:[['Төлем 50 / 50','50% жұмыс басталар алдында, 50% жұмыс дайын болып, ұнағанда.'],['2 рет түзету','Жасау кезінде екі рет тегін түзетеміз, одан кейін прайс бойынша.'],['Қолдау айдың 5-іне дейін','Сайттың ай сайынғы төлемі 5-ке дейін төленеді.'],['7 күн кешігу мүмкіндігі','Төлем 7 күннен артық кешіксе, сайт уақытша өшеді.'],['Домен сіздікі','Басқа әзірлеушіге кетсеңіз де, домен сізде қалады.'],['Үлкен өзгеріс бөлек','Жаңа бет немесе бөлім: 15 000 ₸-ден. Пакеттен тыс өзгеріс: 2 000 ₸.']],
+    stepsL:'Қалай тапсырыс беру',stepsH:'Өтінімнен іске қосуға дейін',
+    steps:[['Өтінім','Instagram-ға не керек екенін жазыңыз. Төмендегі форма хабарламаны өзі құрастырады.'],['Баға және 50%','Нақты баға мен мерзімді айтамын, алдын ала төлейсіз.'],['Алғашқы нұсқа','Нәтижені көрсетемін: сайт 3–4 күнде, видео 1–2 күнде.'],['Іске қосу','Түзетулер енгіземіз, қалғанын төлейсіз, бәрі жұмыс істейді.']],
+    ordL:'Тапсырыс',ordH:'Тапсырманы жазыңыз, қалғанын өзім жасаймын',ordP:'Қызметтерді таңдап, бизнесіңіз туралы бір-екі сөз жазыңыз. Хабарлама өзі құралады, тек Instagram-ға жіберу қалады.',
+    fWhat:'Не керек',fBiz:'Бизнесіңіз',fName:'Атыңыз',fDesc:'Тапсырма қысқаша',fPrev:'Сіздің хабарламаңыз',fSend:'Instagram-ға жіберу',fCopy:'Хабарламаны көшіру',
+    ph:{biz:'Мысалы, кондитерлік',nm:'Мысалы, Айгерім',desc:'Мысалы: бағалары бар, WhatsApp-қа тапсырыс түсетін сайт керек'},
+    hello:'Сәлеметсіз бе! Маған керек:',bizL:'Бизнес',nameL:'Аты',descL:'Тапсырма',choose:'Кемінде бір қызметті таңдаңыз',
+    copied:'Көшірілді. Хабарламаны @ergali_sagat директіне қойыңыз',sentHint:'Хабарлама көшірілді, ашылған чатқа қойыңыз',copyFail:'Көшіру мүмкін болмады. Жоғарыдағы мәтінді қолмен белгілеңіз',
+    fine:'Бағалар теңгемен, бастапқы бағалар көрсетілген. Нақты баға жұмыстың көлеміне байланысты, жұмыс басталғанға дейін бекітіледі.'}
+  };
+  var lang='ru',year=false,sel={},$=function(i){return document.getElementById(i);};
+  try{var s=localStorage.getItem('lang');if(s==='kz'||s==='ru')lang=s;}catch(e){}
+  var f=function(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' ₸';};
+  function price(t,n){return lang==='kz'?f(n)+t.fromSuf:t.from+' '+f(n);}
+  function render(){
+    var t=T[lang];document.documentElement.lang=lang==='kz'?'kk':'ru';
+    document.querySelectorAll('[data-t]').forEach(function(el){el.textContent=t[el.getAttribute('data-t')];});
+    $('h1').innerHTML=t.h1;
+    $('lRu').setAttribute('aria-pressed',lang==='ru');$('lKz').setAttribute('aria-pressed',lang==='kz');
+    $('bM').setAttribute('aria-pressed',!year);$('bY').setAttribute('aria-pressed',year);
+    $('svc').innerHTML=SVC.map(function(v){var d=t.svc[v.k];return '<article class="s"><div class="ic" aria-hidden="true">'+ICON[v.ic]+'</div><h3>'+d[0]+'</h3><p>'+d[1]+'</p><ul>'+d[2].map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul><div class="pr"><b class="num">'+price(t,v.p)+(t.per[v.k]||'')+'</b><button type="button" data-svc="'+v.k+'">'+t.ask+' →</button></div></article>';}).join('');
+    $('plans').innerHTML=P.map(function(p,i){
+      var sup='<b class="num">'+f(year?p.mo*10:p.mo)+'</b>'+(year?'<small class="num">'+t.save+' '+f(p.mo*2)+'</small>':'');
+      return '<article class="plan'+(p.hot?' hot':'')+'"><div class="hd"><h3>'+t.names[i]+'</h3>'+(p.hot?'<span class="pill">'+t.hot+'</span>':'')+'</div><p class="for">'+t.fors[i]+'</p><div class="lines"><div class="line"><span>'+t.one+'</span><b class="num">'+f(p.one)+'</b></div><div class="line"><span>'+(year?t.yr:t.mo)+'</span><div>'+sup+'</div></div></div><ul class="inc">'+t.inc[i].map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul><button type="button" class="btn" data-plan="'+i+'">'+t.pick+' «'+t.names[i]+'»</button></article>';
+    }).join('');
+    $('domT').innerHTML=t.dom.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>';}).join('');
+    var mk=['m1','m2','m3'];
+    $('workG').innerHTML=t.work.map(function(w,i){return '<article class="w"><div class="mock '+mk[i]+'" aria-hidden="true"><i class="t"></i><i class="s1"></i><i class="s2"></i><i class="b"></i></div><div class="bd"><h3>'+w[0]+'</h3><p>'+w[1]+'</p>'+(w[3]?'<a href="'+w[3]+'" target="_blank" rel="noopener">'+w[2]+' →</a>':'<a href="#order">'+w[2]+' →</a>')+'</div></article>';}).join('');
+    $('rulesG').innerHTML=t.rules.map(function(r){return '<div class="rule"><h3>'+r[0]+'</h3><p>'+r[1]+'</p></div>';}).join('');
+    $('stepsG').innerHTML=t.steps.map(function(r){return '<li><b>'+r[0]+'</b><span>'+r[1]+'</span></li>';}).join('');
+    $('what').innerHTML=SVC.map(function(v){return '<button type="button" class="chip" data-k="'+v.k+'" aria-pressed="'+(!!sel[v.k])+'">'+t.svc[v.k][0]+'</button>';}).join('');
+    $('biz').placeholder=t.ph.biz;$('nm').placeholder=t.ph.nm;$('desc').placeholder=t.ph.desc;
+    msg();
+  }
+  function msg(){
+    var t=T[lang],keys=SVC.filter(function(v){return sel[v.k];});
+    if(!keys.length){$('prev').textContent=t.choose;return '';}
+    var lines=[t.hello];
+    keys.forEach(function(v){lines.push('• '+t.svc[v.k][0]+(v.k==='site'&&sel.plan!=null?' — «'+t.names[sel.plan]+'»':''));});
+    var b=$('biz').value.trim(),n=$('nm').value.trim(),d=$('desc').value.trim();
+    if(b)lines.push(t.bizL+': '+b);if(d)lines.push(t.descL+': '+d);if(n)lines.push(t.nameL+': '+n);
+    var m=lines.join('\n');$('prev').textContent=m;return m;
+  }
+  function pick(k){sel[k]=true;render();$('order').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});}
+  function copy(after){
+    var t=T[lang],m=msg(),st=$('status');
+    if(!m){st.textContent=t.choose;return false;}
+    try{navigator.clipboard.writeText(m).then(function(){st.textContent=after?t.sentHint:t.copied;},function(){st.textContent=t.copyFail;});}catch(e){st.textContent=t.copyFail;}
+    return true;
+  }
+  document.addEventListener('click',function(e){
+    var el=e.target.closest('[data-svc],[data-plan],.chip');if(!el)return;
+    if(el.hasAttribute('data-svc'))pick(el.getAttribute('data-svc'));
+    else if(el.hasAttribute('data-plan')){sel.site=true;sel.plan=+el.getAttribute('data-plan');pick('site');}
+    else{var k=el.getAttribute('data-k');sel[k]=!sel[k];if(k==='site'&&!sel[k])sel.plan=null;el.setAttribute('aria-pressed',!!sel[k]);msg();$('status').textContent='';}
+  });
+  ['biz','nm','desc'].forEach(function(i){$(i).addEventListener('input',msg);});
+  $('copy').addEventListener('click',function(){copy(false);});
+  $('send').addEventListener('click',function(e){if(!copy(true))e.preventDefault();});
+  $('form').addEventListener('submit',function(e){e.preventDefault();});
+  $('lRu').onclick=function(){lang='ru';try{localStorage.setItem('lang',lang);}catch(e){}render();};
+  $('lKz').onclick=function(){lang='kz';try{localStorage.setItem('lang',lang);}catch(e){}render();};
+  $('bM').onclick=function(){year=false;render();};
+  $('bY').onclick=function(){year=true;render();};
+  sel.site=true;sel.plan=1;
+  render();
+})();
+</script>
+</body>
+</html>

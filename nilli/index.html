@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Nilli Cake Тараз</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Manrope:wght@400;500;600;700&family=Great+Vibes&display=swap">
+<style>
+/* Layout: витрина как их прайс-лист — меню с ценой за кг, калькулятор торта, бенто и десерты, работы на заказ, адрес */
+:root{
+  --bg:#FBF8F6; --paper:#FFFFFF; --ink:#151212; --muted:#6F6463; --line:#E8DEDC;
+  --wine:#8C1C26; --blush:#F4E6E5; --gold:#B8923F; --on-wine:#FFFFFF;
+  --head:"Tenor Sans","Manrope",system-ui,sans-serif;
+  --body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --script:"Great Vibes","Segoe Script",cursive;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141011; --paper:#1D1718; --ink:#F4ECEA; --muted:#B5A6A4; --line:#342A2B;
+  --wine:#D2505C; --blush:#2B1D1F; --gold:#D4B067; --on-wine:#141011; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141011; --paper:#1D1718; --ink:#F4ECEA; --muted:#B5A6A4; --line:#342A2B;
+  --wine:#D2505C; --blush:#2B1D1F; --gold:#D4B067; --on-wine:#141011; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--body);padding-bottom:86px}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--head);font-weight:400;line-height:1.15;margin:0;text-wrap:balance}
+h2{font-size:clamp(26px,4.2vw,40px)}
+.cap{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--wine);font-weight:600}
+.script{font-family:var(--script);font-weight:400}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--wine);outline-offset:3px;border-radius:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;padding:14px 24px;font:700 15px var(--body);cursor:pointer;text-decoration:none}
+.btn-wine{background:var(--wine);color:var(--on-wine)}
+.btn-line{box-shadow:inset 0 0 0 1.5px var(--ink);color:var(--ink);background:transparent}
+section{padding-block:60px}
+
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--bg)}
+.hdr{display:flex;align-items:center;gap:12px;padding-block:10px}
+.hdr img{width:44px;height:44px;border-radius:50%;background:#fff;border:1px solid var(--line)}
+.hdr b{font-family:var(--head);font-size:16px;font-weight:400;letter-spacing:.06em}
+.hdr small{display:block;font-size:12px;color:var(--muted)}
+.hdr nav{margin-left:auto;display:flex;gap:20px;font-size:14px;font-weight:600}
+.hdr nav a{text-decoration:none}
+@media (max-width:760px){.hdr nav{display:none}}
+
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;padding-block:44px 36px}
+.hero .brand{font-family:var(--script);font-size:clamp(56px,9vw,96px);line-height:1;color:var(--ink)}
+.hero h1{font-size:clamp(20px,2.6vw,26px);letter-spacing:.18em;text-transform:uppercase;margin-block:6px 20px}
+.hero p{color:var(--muted);font-size:18px;max-width:44ch}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.hero-pic img{width:100%;aspect-ratio:4/4.4;object-fit:cover;border-radius:200px 200px 24px 24px;display:block}
+.facts{display:flex;gap:28px;flex-wrap:wrap;margin-top:28px;font-size:14px;color:var(--muted)}
+.facts b{display:block;color:var(--ink);font-size:16px}
+@media (max-width:800px){.hero{grid-template-columns:1fr}.hero-pic{order:-1}.hero-pic img{aspect-ratio:1/1}}
+
+/* menu like their price list */
+.menu{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:clamp(22px,5vw,48px)}
+.menu-top{text-align:center;margin-bottom:28px}
+.menu-top .script{font-size:44px;display:block;line-height:1}
+.menu-top .cap{color:var(--muted)}
+.items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 48px}
+@media (max-width:760px){.items{grid-template-columns:1fr}}
+.item{padding-block:16px;border-bottom:1px solid var(--line);cursor:pointer;background:none;border-left:0;border-right:0;border-top:0;text-align:left;color:inherit;font:inherit;width:100%}
+.item .row{display:flex;align-items:baseline;gap:10px}
+.item .nm{font-family:var(--head);font-size:17px;text-transform:uppercase;letter-spacing:.08em}
+.item .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px)}
+.item .pr{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.item p{margin:6px 0 0;color:var(--muted);font-size:14px}
+.item[aria-pressed="true"] .nm{color:var(--wine)}
+.item[aria-pressed="true"] .pr{color:var(--wine)}
+.note{text-align:center;color:var(--muted);font-size:13px;margin-top:20px}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;margin-top:28px;background:var(--wine);color:var(--on-wine);border-radius:28px;padding:clamp(22px,4vw,40px);align-items:center}
+.calc .cap{color:var(--on-wine);opacity:.75}
+.calc h3{font-size:clamp(22px,3vw,30px);margin-top:8px}
+.calc .sel{margin-top:8px;opacity:.9}
+.kg{display:flex;align-items:center;gap:14px;margin-block:14px}
+.kg button{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--on-wine);background:transparent;color:var(--on-wine);font-size:22px;cursor:pointer}
+.kg output{font-family:var(--head);font-size:28px;min-width:90px;text-align:center;font-variant-numeric:tabular-nums}
+.sum{font-family:var(--head);font-size:clamp(34px,6vw,52px);font-variant-numeric:tabular-nums;line-height:1}
+.calc .btn{background:var(--on-wine);color:var(--wine);margin-top:16px}
+.calc small{opacity:.8}
+@media (max-width:760px){.calc{grid-template-columns:1fr}}
+
+/* desserts */
+.des{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:26px}
+.des figure{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.des img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.des figcaption{padding:14px 16px}
+.des b{font-family:var(--head);font-weight:400;font-size:18px;display:block}
+.des span{color:var(--muted);font-size:14px}
+@media (max-width:760px){.des{grid-template-columns:1fr}}
+
+/* custom works */
+.works{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:26px}
+.works img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:16px;display:block}
+@media (max-width:860px){.works{grid-template-columns:repeat(2,minmax(0,1fr))}.works img:last-child{grid-column:span 2;aspect-ratio:2/1.2}}
+
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:26px}
+.steps div{border-top:2px solid var(--ink);padding-top:14px}
+.steps b{font-family:var(--head);font-weight:400;font-size:19px;display:block;margin-bottom:4px}
+.steps span{color:var(--muted);font-size:15px}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+.visit .box{background:var(--blush);border-radius:24px;padding:28px}
+.visit .big{font-family:var(--head);font-size:24px;display:block;margin-top:6px}
+.copy{border:0;background:var(--ink);color:var(--bg);border-radius:999px;padding:9px 16px;font:600 13px var(--body);cursor:pointer;margin-top:12px}
+@media (max-width:760px){.visit{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);font-size:14px}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--paper);border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px calc(10px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.bar span{font-size:13px;color:var(--muted)}
+.bar b{display:block;color:var(--ink);font-size:15px}
+.wm{position:fixed;right:max(12px,env(safe-area-inset-right,0px));bottom:calc(80px + env(safe-area-inset-bottom,0px));z-index:31;background:var(--ink);color:var(--bg);font:600 12px var(--body);padding:6px 12px;border-radius:999px;opacity:.85;pointer-events:none}
+</style>
+
+<header><div class="wrap hdr">
+  <img src="img/logo.png" alt="Логотип Nilli Cake">
+  <div><b>NILLI CAKE</b><small>Торты на заказ · Тараз</small></div>
+  <nav><a href="#menu">Меню</a><a href="#desserts">Десерты</a><a href="#works">Работы</a><a href="#visit">Адрес</a></nav>
+</div></header>
+
+<main>
+<div class="wrap hero">
+  <div>
+    <div class="brand">Nilli Cake</div>
+    <h1>Торты на заказ · Тараз</h1>
+    <p>Бенто, торты на праздник и десерты из натуральных продуктов, без заменителей. Выберите начинку и вес, а заявка сразу придёт в WhatsApp.</p>
+    <div class="cta"><a class="btn btn-wine" href="#menu">Выбрать начинку</a><a class="btn btn-line" href="#works">Посмотреть работы</a></div>
+    <div class="facts"><div><b>от 8 000 ₸</b>за 1 кг</div><div><b>10 начинок</b>в меню</div><div><b>10:00–20:00</b>ежедневно</div></div>
+  </div>
+  <div class="hero-pic"><img src="img/bento.jpg" alt="Бенто-торт «Красный бархат» Happy Birthday"></div>
+</div>
+
+<section id="menu"><div class="wrap">
+  <div class="menu">
+    <div class="menu-top"><span class="script">Nilli Cake</span><span class="cap">Price list</span></div>
+    <div class="items" id="items"></div>
+    <div class="note">Цена указана за 1 кг. Нажмите на начинку, чтобы посчитать торт.</div>
+  </div>
+  <div class="calc" id="calc">
+    <div>
+      <div class="cap">Расчёт торта</div>
+      <h3 id="cName">Молочная девочка</h3>
+      <div class="sel" id="cDesc"></div>
+      <div class="kg"><button type="button" id="minus" aria-label="Меньше">−</button><output id="kgOut">2 кг</output><button type="button" id="plus" aria-label="Больше">+</button></div>
+      <small>Примерно 1 кг на 5–6 гостей</small>
+    </div>
+    <div>
+      <div class="cap">Итого</div>
+      <div class="sum" id="sum">16 000 ₸</div>
+      <small>Декор и надпись обсуждаются отдельно</small><br>
+      <a class="btn" id="order" href="https://wa.me/77761126503" target="_blank" rel="noopener">Заказать в WhatsApp</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="desserts" style="padding-top:0"><div class="wrap">
+  <div class="cap">Десерты</div>
+  <h2 style="margin-top:8px">Маленькие радости</h2>
+  <div class="des">
+    <figure><img src="img/bento.jpg" alt="Бенто-торт" loading="lazy"><figcaption><b>Бенто-торт</b><span>Маленький торт с надписью для одного или двоих</span></figcaption></figure>
+    <figure><img src="img/eskimo.jpg" alt="Эскимо с печеньем" loading="lazy"><figcaption><b>Эскимо</b><span>Начинка «шоколадная картошка» в шоколаде</span></figcaption></figure>
+    <figure><img src="img/cupcakes.jpg" alt="Капкейки в коробке" loading="lazy"><figcaption><b>Капкейки</b><span>Наборы с декором под ваш праздник</span></figcaption></figure>
+  </div>
+</div></section>
+
+<section id="works" style="padding-top:0"><div class="wrap">
+  <div class="cap">Торты на заказ</div>
+  <h2 style="margin-top:8px">Любой дизайн по вашей идее</h2>
+  <div class="works">
+    <img src="img/redtex.jpg" alt="Торт с рельефным кремовым декором" loading="lazy">
+    <img src="img/bow.jpg" alt="Двухъярусный торт с бантом" loading="lazy">
+    <img src="img/lion.jpg" alt="Детский торт со львёнком" loading="lazy">
+    <img src="img/black.jpg" alt="Чёрный торт с надписью" loading="lazy">
+    <img src="img/papa.jpg" alt="Торт на 60-летие" loading="lazy">
+  </div>
+  <div class="steps">
+    <div><b>Идея</b><span>Пришлите фото-пример или опишите праздник.</span></div>
+    <div><b>Начинка и вес</b><span>Выберите вкус из меню, посчитаем вес под гостей.</span></div>
+    <div><b>Готово</b><span>Заберите торт на Самаркандской или договоримся о доставке.</span></div>
+  </div>
+</div></section>
+
+<section id="visit" style="padding-top:0"><div class="wrap visit">
+  <div class="box"><div class="cap">Адрес</div><span class="big">ул. Самаркандская, 76</span><span style="color:var(--muted)">Тараз · ежедневно 10:00–20:00</span></div>
+  <div class="box"><div class="cap">Заказ</div><span class="big" id="ph">+7 776 112 65 03</span><span style="color:var(--muted)">WhatsApp или Direct @nilli.cake</span><br><button class="copy" type="button" id="copy">Скопировать номер</button></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">Nilli Cake by Abdusamatova Nizona · Тараз</div></footer>
+<div class="bar"><span><b>Nilli Cake</b>от 8 000 ₸ за кг</span><a class="btn btn-wine" href="#calc">Рассчитать торт</a></div>
+<div class="wm">@ergali_sagat · макет</div>
+
+<script>
+const M=[
+ ['Молочная девочка',8000,'Воздушные коржи на сгущённом молоке, крем чиз на натуральных сливках, клубничный джем собственного производства.'],
+ ['Мокко',8500,'Шоколадный бисквит, насыщенный кофейный крем, покрытие шоколадным кремом.'],
+ ['Три шоколада',9500,'Шоколадный бисквит и мусс из трёх видов бельгийского шоколада.'],
+ ['Сникерс',8500,'Шоколадный бисквит, крем чиз и шоколадный крем, карамель с арахисом.'],
+ ['Лавандовая смородина',8500,'Воздушные коржи, нежный крем чиз на натуральных сливках, ягодная прослойка.'],
+ ['Морковный',9000,'Классический морковный торт, состав уточняйте у кондитера.'],
+ ['Фисташковый',9500,'Нежный бисквит и фисташковый крем, состав уточняйте у кондитера.'],
+ ['Банановый',9500,'Шоколадный бисквит, крем чиз и шоколадный крем, карамель с арахисом.'],
+ ['Вупи-пай',8500,'Шоколадные коржи в стиле вупи с тёмным бельгийским шоколадом, крем чиз.'],
+ ['Красный бархат',8500,'Нежные коржи, лёгкий крем чиз со вкусом пломбира, воздушный клубничный мусс.'],
+];
+const f=n=>n.toLocaleString('ru-RU').replace(/ /g,' ');
+let cur=0,kg=2;
+const box=document.getElementById('items');
+box.innerHTML=M.map((m,i)=>`<button class="item" type="button" data-i="${i}" aria-pressed="${i===0}"><div class="row"><span class="nm">${m[0]}</span><span class="dots"></span><span class="pr">${f(m[1])} ₸</span></div><p>${m[2]}</p></button>`).join('');
+function upd(){const m=M[cur],t=Math.round(m[1]*kg);
+ document.getElementById('cName').textContent=m[0];document.getElementById('cDesc').textContent=f(m[1])+' ₸ за 1 кг';
+ document.getElementById('kgOut').textContent=String(kg).replace('.',',')+' кг';document.getElementById('sum').textContent=f(t)+' ₸';
+ document.getElementById('order').href='https://wa.me/77761126503?text='+encodeURIComponent(`Здравствуйте! Хочу заказать торт «${m[0]}», ${String(kg).replace('.',',')} кг (≈${f(t)} ₸).`);}
+box.addEventListener('click',e=>{const b=e.target.closest('.item');if(!b)return;cur=+b.dataset.i;
+ box.querySelectorAll('.item').forEach(x=>x.setAttribute('aria-pressed',x===b));upd();
+ if(matchMedia('(max-width:760px)').matches)document.getElementById('calc').scrollIntoView({behavior:'smooth',block:'center'});});
+document.getElementById('minus').onclick=()=>{kg=Math.max(1,kg-0.5);upd()};
+document.getElementById('plus').onclick=()=>{kg=Math.min(15,kg+0.5);upd()};
+upd();
+document.getElementById('copy').addEventListener('click',e=>{const b=e.currentTarget;
+ const sel=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById('ph'));const s=getSelection();s.removeAllRanges();s.addRange(r)};
+ try{navigator.clipboard.writeText('+77761126503').then(()=>b.textContent='Скопировано',sel)}catch(_){sel()}});
+</script>

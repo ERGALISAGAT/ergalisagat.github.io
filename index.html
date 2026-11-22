@@ -122,6 +122,24 @@ a{color:inherit}
 .w h3{font-size:17px}
 .w p{font-size:14px;color:var(--ink-2)}
 .w a{font-size:14px;font-weight:600;color:var(--accent);margin-top:6px}
+.w.live{grid-column:span 2;order:-1;border-color:var(--gold)}
+@media (max-width:900px){.w.live{grid-column:auto}}
+.w.live .shot{display:block;text-decoration:none;color:#2B211C;margin:0;background:#1d1f2e}
+.w.live .browser{display:flex;align-items:center;gap:10px;padding:9px 12px;background:#2a2d40;color:#c9cbe0;font:500 12px var(--mono)}
+.w.live .dots{display:flex;gap:5px}.w.live .dots i{width:9px;height:9px;border-radius:50%;background:#ff5f57}.w.live .dots i:nth-child(2){background:#febc2e}.w.live .dots i:nth-child(3){background:#28c840}
+.w.live .url{background:#1d1f2e;border-radius:6px;padding:3px 10px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.w.live .pv{position:relative;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:14px;padding:22px;background:#FBF7F2;min-height:230px}
+.w.live .pvt small{display:block;font:700 10px var(--body);letter-spacing:.18em;color:#B07A2E;margin-bottom:8px}
+.w.live .pvt b{display:block;font:600 clamp(24px,3.4vw,34px)/1.05 "Cormorant Garamond",Georgia,serif;color:#2B211C}
+.w.live .pvt em{color:#B07A2E;font-style:italic;font-weight:500}
+.w.live .pvb{display:inline-block;margin-top:14px;background:#2B211C;color:#FBF7F2;font:700 12px var(--body);padding:9px 14px;border-radius:10px}
+.w.live .pv img{width:100%;max-width:280px;justify-self:end;aspect-ratio:1/1;object-fit:cover;border-radius:120px 120px 14px 14px;background:#F3E6D2}
+.w.live .tag{position:absolute;top:12px;right:12px;background:var(--gold);color:#121528;font:700 11px var(--body);letter-spacing:.06em;padding:5px 10px;border-radius:99px;text-transform:uppercase}
+.w.live .feat{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:4px 0 6px}
+.w.live .feat li{font-size:12.5px;font-weight:600;background:var(--accent-soft);color:var(--ink);padding:5px 10px;border-radius:99px}
+.w.live .open{display:flex;justify-content:center;align-items:center;gap:8px;background:var(--gold);color:#121528;font-size:15px;font-weight:700;text-decoration:none;padding:14px 18px;border-radius:12px;margin-top:8px;transition:transform .15s}
+.w.live .open:hover{transform:translateY(-2px)}
+@media (max-width:520px){.w.live .pv{grid-template-columns:1fr 110px;padding:16px;min-height:0}.w.live .pvt b{font-size:22px}}
 
 .rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
 @media (max-width:900px){.rules{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -272,7 +290,8 @@ textarea{min-height:96px;resize:vertical}
     domH:'Домен оплачивается отдельно',domP:'Домен (ваш-бизнес.com) оформляется на ваше имя, и вы оплачиваете его раз в год. Подключу его к сайту бесплатно. Без домена сайт работает по бесплатному адресу.',
     dom:[['<b>.com</b>','≈ 8 000 ₸ / год'],['<b>.kz</b>','от 5 000 ₸ / год'],['Подключение к сайту','бесплатно']],
     workL:'Примеры',workH:'Что уже сделано',
-    work:[['Фитнес-клуб','Сайт с расписанием, тарифами и записью.','Покажу в директе',''],['Кондитерские','Сайт кондитерской: каталог тортов, расчёт цены по весу и заказ в WhatsApp.','Смотреть демо','demo/'],['Домашние полуфабрикаты','Каталог с ценами и корзиной, заказ одним сообщением.','Покажу в директе','']],
+    demoTag:'Демо · живой сайт',
+    work:[['Фитнес-клуб','Сайт с расписанием, тарифами и записью.','Покажу в директе',''],['Сайт для кондитерской','Живой демо-сайт: откройте, выберите торт и отправьте пробный заказ в WhatsApp — так же будет работать ваш сайт.','Открыть демо-сайт','demo/',['12 тортов с фото','Калькулятор цены','Заказ в WhatsApp','Свадебные торты']],['Домашние полуфабрикаты','Каталог с ценами и корзиной, заказ одним сообщением.','Покажу в директе','']],
     rulesL:'Условия',rulesH:'Как мы работаем',
     rules:[['Оплата 50 / 50','50% перед началом, 50% когда работа готова и вам всё нравится.'],['2 круга правок','При создании два раза вносим правки бесплатно, дальше по прайсу.'],['Поддержка до 5 числа','Ежемесячный платёж за сайт вносится до 5 числа.'],['7 дней отсрочки','Если оплата задерживается больше 7 дней, сайт временно отключается.'],['Домен на вас','Домен ваш навсегда, даже если вы уйдёте к другому разработчику.'],['Большие изменения отдельно','Новая страница или раздел: от 15 000 ₸. Правка сверх пакета: 2 000 ₸.']],
     stepsL:'Как заказать',stepsH:'От заявки до запуска',
@@ -302,7 +321,8 @@ textarea{min-height:96px;resize:vertical}
     domH:'Домен бөлек төленеді',domP:'Домен (сіздің-бизнес.com) сіздің атыңызға тіркеледі, ақысын жылына бір рет өзіңіз төлейсіз. Сайтқа тегін қосып берем. Доменсіз сайт тегін мекенжайда жұмыс істейді.',
     dom:[['<b>.com</b>','≈ 8 000 ₸ / жыл'],['<b>.kz</b>','5 000 ₸-ден / жыл'],['Сайтқа қосу','тегін']],
     workL:'Жұмыстар',workH:'Не жасалды',
-    work:[['Фитнес-клуб','Кестесі, тарифтері және жазылуы бар сайт.','Директте көрсетем',''],['Кондитерлер','Кондитерлік сайты: торт каталогы, салмақ бойынша баға және WhatsApp-қа тапсырыс.','Демоны көру','demo/'],['Үй жартылай фабрикаттары','Бағасы мен себеті бар каталог, тапсырыс бір хабарламамен.','Директте көрсетем','']],
+    demoTag:'Демо · тірі сайт',
+    work:[['Фитнес-клуб','Кестесі, тарифтері және жазылуы бар сайт.','Директте көрсетем',''],['Кондитерлік сайты','Тірі демо-сайт: ашып, торт таңдап, WhatsApp-қа сынақ тапсырыс жіберіп көріңіз — сіздің сайтыңыз да дәл осылай жұмыс істейді.','Демо-сайтты ашу','demo/',['Фотосы бар 12 торт','Баға калькуляторы','WhatsApp-қа тапсырыс','Той торттары']],['Үй жартылай фабрикаттары','Бағасы мен себеті бар каталог, тапсырыс бір хабарламамен.','Директте көрсетем','']],
     rulesL:'Шарттар',rulesH:'Қалай жұмыс істейміз',
     rules:[['Төлем 50 / 50','50% жұмыс басталар алдында, 50% жұмыс дайын болып, ұнағанда.'],['2 рет түзету','Жасау кезінде екі рет тегін түзетеміз, одан кейін прайс бойынша.'],['Қолдау айдың 5-іне дейін','Сайттың ай сайынғы төлемі 5-ке дейін төленеді.'],['7 күн кешігу мүмкіндігі','Төлем 7 күннен артық кешіксе, сайт уақытша өшеді.'],['Домен сіздікі','Басқа әзірлеушіге кетсеңіз де, домен сізде қалады.'],['Үлкен өзгеріс бөлек','Жаңа бет немесе бөлім: 15 000 ₸-ден. Пакеттен тыс өзгеріс: 2 000 ₸.']],
     stepsL:'Қалай тапсырыс беру',stepsH:'Өтінімнен іске қосуға дейін',
@@ -331,7 +351,7 @@ textarea{min-height:96px;resize:vertical}
     }).join('');
     $('domT').innerHTML=t.dom.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>';}).join('');
     var mk=['m1','m2','m3'];
-    $('workG').innerHTML=t.work.map(function(w,i){return '<article class="w"><div class="mock '+mk[i]+'" aria-hidden="true"><i class="t"></i><i class="s1"></i><i class="s2"></i><i class="b"></i></div><div class="bd"><h3>'+w[0]+'</h3><p>'+w[1]+'</p>'+(w[3]?'<a href="'+w[3]+'" target="_blank" rel="noopener">'+w[2]+' →</a>':'<a href="#order">'+w[2]+' →</a>')+'</div></article>';}).join('');
+    $('workG').innerHTML=t.work.map(function(w,i){if(w[3])return '<article class="w live"><a class="shot" href="'+w[3]+'" target="_blank" rel="noopener" aria-label="'+w[2]+'"><div class="browser"><span class="dots"><i></i><i></i><i></i></span><span class="url">ergalisagat.github.io/'+w[3]+'</span></div><div class="pv"><div class="pvt"><small>BAL PÂTISSERIE</small><b>Торты, о которых <em>говорят</em> после праздника</b><span class="pvb">Собрать торт</span></div><img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=500&q=70&auto=format&fit=crop" alt="" loading="lazy"><span class="tag">'+t.demoTag+'</span></div></a><div class="bd"><h3>'+w[0]+'</h3><p>'+w[1]+'</p><ul class="feat">'+w[4].map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul><a class="open" href="'+w[3]+'" target="_blank" rel="noopener">'+w[2]+' →</a></div></article>';return '<article class="w"><div class="mock '+mk[i]+'" aria-hidden="true"><i class="t"></i><i class="s1"></i><i class="s2"></i><i class="b"></i></div><div class="bd"><h3>'+w[0]+'</h3><p>'+w[1]+'</p>'+(w[3]?'<a href="'+w[3]+'" target="_blank" rel="noopener">'+w[2]+' →</a>':'<a href="#order">'+w[2]+' →</a>')+'</div></article>';}).join('');
     $('rulesG').innerHTML=t.rules.map(function(r){return '<div class="rule"><h3>'+r[0]+'</h3><p>'+r[1]+'</p></div>';}).join('');
     $('stepsG').innerHTML=t.steps.map(function(r){return '<li><b>'+r[0]+'</b><span>'+r[1]+'</span></li>';}).join('');
     $('what').innerHTML=SVC.map(function(v){return '<button type="button" class="chip" data-k="'+v.k+'" aria-pressed="'+(!!sel[v.k])+'">'+t.svc[v.k][0]+'</button>';}).join('');

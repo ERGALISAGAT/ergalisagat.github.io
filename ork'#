@@ -1,0 +1,1 @@
+await p.goto('file://'+process.cwd()+'/index.html);await p.waitForTimeout(600);console.log(n,await p.evaluate(()=>document.documentElement.scrollWidth),e);
